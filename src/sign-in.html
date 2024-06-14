@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" />
+    <!--<link rel="stylesheet" href="Sign-up.css" />-->
+  </head>
+  <body>
+    <div style=" box-sizing:border-box;position:relative;width: 824px;height:900px;margin: 0 auto;background:#ffffff;border: 1px solid rgba(255, 255, 255, 0.1);font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft Yahei UI', 'Microsoft Yahei', 'Source Han Sans CN', sans-serif;">
+      <a href="landing.html">
+        <img src="/public/images/PassGuard.png" alt="Example Image" style="display:flex;align-items:flex-start;cursor:pointer;justify-content:flex-start;position:absolute;height:50.058px;top:20px;left:100px;color:#000000;font-family:Poppins, var(--default-font-family);z-index:83;"/>
+     </a>
+     <div style="position:relative;width:556px;height:640px;margin:123.402px 0 0 81.16px;font-size:0px;background:#285b2a23;z-index:2;overflow:visible auto;border-radius: 31px;">
+      <span style="display:block;position:relative;height:48px;margin:45px 0 0 49px;color:#000000;font-family:Inter, var(--default-font-family);font-size:40px;font-weight:700;line-height:48px;text-align:left;white-space:nowrap;z-index: 7;">SIGN IN</span>
+      <span style="display:block;position:relative;height:27px;margin:10px 0 0 50px;color:#000000;font-family:Poppins, var(--default-font-family);font-size:18px;font-weight:300;line-height:27px;text-align:left;white-space:nowrap;z-index:6;">Hello, Please Sign In to your account</span>
+      <form>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;flex-wrap:nowrap;gap:12px;position:relative;width:424px;margin:16px 0 0 50px;z-index:12;">
+          <span style="display:flex;align-items:flex-start;justify-content:flex-start;flex-shrink:0;flex-basis:auto;position:relative;width:379px;height:22px;color:#000000;font-family:Inter, var(--default-font-family);font-size:18px;font-weight:600;line-height:21.784px;text-align:left;white-space:nowrap;z-index:13;">Email</span>
+          <div style= "text-decoration: none;flex-shrink:0;position:relative;width:424px;height:50px;background:#ffffff;z-index:14;border-radius:10px;box-shadow:0 4px 20px 0 rgba(0, 0, 0, 0.1);"></div>
+          <input type="email" id="email" name="email" style="display:flex;align-items:flex-start;justify-content:flex-start;flex-shrink:0;flex-basis:auto;position:absolute;width:350px;height:27px;top:46px;left:26px;color:#0c0b0b;font-family: Poppins,var(--default-font-family);font-size:18px;font-weight:300;line-height:27px;text-align:left;white-space:nowrap;border:none;z-index:15;" required>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; position: relative; width: 424px; margin: 16px 0 0 50px; z-index: 12;">
+          <span style="width: 379px; height: 22px; color: #000000; font-family: Inter, var(--default-font-family); font-size: 18px; font-weight: 600; line-height: 21.784px; text-align: left; white-space: nowrap; z-index: 13;">Password</span>
+          <div style="width: 424px; height: 50px; background: #ffffff; border-radius: 10px; box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.1); position: relative; z-index: 14;">
+              <input type="password" id="newPassword" name="newPassword" style="width: 350px; height: 27px; top: 50%; left: 26px; transform: translateY(-50%); color: #0c0b0b; font-family: Poppins, var(--default-font-family); font-size: 18px; font-weight: 300; line-height: 27px; text-align: left; border: none; position: absolute; z-index: 15;" required>
+              <span class="toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;" onclick="togglePasswordVisibility('newPassword')">
+                <i class="material-icons" style="font-size: 24px; color: #888;">
+                  <img src="/public/images/eye-crossed.png"/>
+                </i>
+              </span>
+          </div>
+        </div>     
+        <button style="cursor: pointer; background: #285b2a6a; border-radius: 10px;height: 50px; width: 200px; font-size: large; position: absolute; left: 160px; top:400px; border: none;" type="submit">Continue</button>
+      </form>
+      <div class="dont-have-account" style="position:absolute;width:379px;height:22px;margin:81.651px 0 0 50px;top:450px;font-family:Inter, var(--default-font-family);font-size:18px;font-weight:300;line-height:21.784px;text-align:left;text-overflow:initial;white-space:nowrap;z-index:4; text-decoration: none;">
+        <span class="already-have-account" style="position:relative;color:#000000;font-family:Inter, var(--default-font-family);font-size:18px;font-weight:300;line-height:21.784px;text-align:left;">Don’t have an account ? </span>
+        <a href="Sign-up.html">
+          <span class="sign-in" style="position:relative;color:#000000;font-family:Inter, var(--default-font-family);font-size:18px;font-weight:500;line-height:21.784px;text-align:left;cursor:pointer; text-decoration: none;">Sign Up</span>
+        </a>
+      </div>
+      <a href="Password.html">
+        <span class="forgot-password" style="display:block;position:absolute;top:545px;height:22px;margin:12px 0 0 50px;color:#000000;font-family:Inter, var(--default-font-family);font-size:18px;font-weight:500;line-height:21.784px;text-align:left;white-space:nowrap;z-index:5;cursor:pointer;">Forgot password?</span>
+      </a>
+    </div>
+    <!-- Include jQuery and Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Include custom scripts -->
+    <script src="/src/scripts.js"></script>
+  </body>
+</html>
