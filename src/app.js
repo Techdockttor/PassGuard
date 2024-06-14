@@ -4,9 +4,12 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
-const Password = require('./models/user'); // Import your User model
+const User = require('./models/user'); // Import your User model
 const Password = require('./models/password'); // Import your Password model
 const db = require('./db'); // Import MongoDB connection
+const authRouter = require('./auth'); // Example router file
+const passwordRouter = require('./passwords'); // Example router file
+
 
 const app = express();
 

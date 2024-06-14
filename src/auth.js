@@ -5,7 +5,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('./models/user');
-const User = require('./models/password');
+const Password = require('./models/password');
 //const generatePassword = require('./models/passcode');  Adjust the path as per your file structure
 
 // Register a new user
