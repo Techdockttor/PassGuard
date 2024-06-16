@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const Password = require('./models/password');
+const generatePassword = require('../passwordGenerator');
 
 // Create a new password
 router.post('/', async (req, res) => {
@@ -49,6 +50,17 @@ router.put('/:id/status', async (req, res) => {
     res.json(password);
   } catch (err) {
     res.status(500).json({ message: err.message });
+  }
+});
+
+// Route to generate a new password
+router.get('/generate', async (req, res) => {
+  try {
+      const password = await generatePassword();
+      res.status(200).json({ password });
+  } catch (error) {
+      console.error('Error generating password:', error);
+      res.status(500).json({ error: 'Failed to generate password' });
   }
 });
 
