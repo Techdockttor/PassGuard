@@ -10,7 +10,7 @@ const db = require('./db'); // Import MongoDB connection
 const authRouter = require('./auth'); // Example router file
 const passwordRouter = require('./passwords');
 const app = express();
-const db = require('./config');
+const config = require('./config');
 
 //CORS
 const corsoptions = {
