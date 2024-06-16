@@ -15,6 +15,7 @@ const config = require('./config');
 const { API_URL, KEY } = require('./config');
 const { AJAX } = require('./ajax');
 const generatePassword = require('./passwordGenerator');
+const portfinder = require('portfinder');
 
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("DB Connection successfully!"))
@@ -64,6 +65,21 @@ app.get('/sign-in', (req, res) => {
 // API Routes
 app.use('/api/auth', authRouter);
 app.use('/api/passwords', passwordRouter);
+
+// Set base port to 3000 or read from environment
+portfinder.basePort = process.env.PORT || 3000;
+
+// Find a free port and start the server
+portfinder.getPort((err, port) => {
+  if (err) {
+    console.error('Error finding a free port:', err);
+    process.exit(1);
+  }
+
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost: ${port}`);
+  });
+});
 
 // Start server
 const PORT = process.env.PORT || 3000;
