@@ -1,5 +1,5 @@
 // src/db.js
-
+const mongoURI = 'mongodb://localhost:27017/passguarddb';
 const mongoose = require('mongoose');
 
 // Set strictQuery to suppress the warning
