@@ -12,9 +12,15 @@ mongoose.connect('mongodb://localhost:27017/passguarddb', {
 
 const db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB');
+// Event handlers for MongoDB connection
+db.on('error', (err) => {
+  console.error('MongoDB connection error:', err);
 });
 
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+  // Perform operations that require a database connection here
+});
+
+// Export the database connection
 module.exports = db;
