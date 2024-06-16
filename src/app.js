@@ -8,7 +8,7 @@ const User = require('./models/user'); // Import your User model
 const Password = require('./models/password'); // Import your Password model
 const db = require('./db'); // Import MongoDB connection
 const authRouter = require('./auth'); // Example router file
-const passwordRouter = require('./passwords'); // Example router file
+const passwordRouter = require('./passwords');
 const app = express();
 
 //CORS
@@ -53,8 +53,8 @@ app.get('/sign-in', (req, res) => {
 });
 
 // API Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/passwords', passwordRoutes);
+app.use('/api/auth', authRouter);
+app.use('/api/passwords', passwordRouter);
 
 // Start server
 const PORT = process.env.PORT || 3000;
