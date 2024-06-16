@@ -16,16 +16,6 @@ const { API_URL, KEY } = require('./config');
 const { AJAX } = require('./ajax');
 const generatePassword = require('./passwordGenerator');
 
-const port = 8800;
-dotenv.config();
-
-mongoose.connect(process.env.MONGO_URL)
-.then(() => console.log("DB Connection successfully!"))
-.catch((err) => console.log(err));
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }))
-
 //CORS
 const corsoptions = {
   origin: "http://localhost:5000" || "*", //The frontend domain. || or
@@ -70,10 +60,9 @@ app.get('/sign-in', (req, res) => {
 // API Routes
 app.use('/api/auth', authRouter);
 app.use('/api/passwords', passwordRouter);
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }))
 
 // Start server
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
