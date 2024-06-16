@@ -2,6 +2,9 @@
 
 const mongoose = require('mongoose');
 
+// Set strictQuery to suppress the warning
+mongoose.set('strictQuery', true); // or false based on your preference
+
 mongoose.connect('mongodb://localhost:27017/passguarddb', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
