@@ -4,6 +4,9 @@ require('dotenv').config();
 // Load MongoDB URI from environment variables or use a fallback
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/passguarddb';
 
+// Set strictQuery to suppress the warning
+mongoose.set('strictQuery', true); // or false based on your preference
+
 // Set mongoose options and connect to MongoDB
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
