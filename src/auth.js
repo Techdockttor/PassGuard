@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('./models/user');
 const Password = require('./models/password');
-const generatePassword = require('../passwordGenerator');
 
 // Register a new user
 router.post('/register', async (req, res) => {
@@ -131,17 +130,6 @@ router.delete('/delete-password/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
-});
-
-// Route to generate a new password
-router.get('/generate', async (req, res) => {
-    try {
-        const password = await generatePassword();
-        res.status(200).json({ password });
-    } catch (error) {
-        console.error('Error generating password:', error);
-        res.status(500).json({ error: 'Failed to generate password' });
-    }
 });
 
 module.exports = router;
