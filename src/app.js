@@ -10,10 +10,21 @@ const db = require('./db'); // Import MongoDB connection
 const authRouter = require('./auth'); // Example router file
 const passwordRouter = require('./passwords');
 const app = express();
+const dotenv = require("dotenv");
 const config = require('./config');
 const { API_URL, KEY } = require('./config');
 const { AJAX } = require('./ajax');
 const generatePassword = require('./passwordGenerator');
+
+const port = 8800;
+dotenv.config();
+
+mongoose.connect(process.env.MONGO_URL)
+.then(() => console.log("DB Connection successfully!"))
+.catch((err) => console.log(err));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 
 //CORS
 const corsoptions = {
@@ -59,9 +70,10 @@ app.get('/sign-in', (req, res) => {
 // API Routes
 app.use('/api/auth', authRouter);
 app.use('/api/passwords', passwordRouter);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 
 // Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
 });
