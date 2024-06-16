@@ -1,14 +1,10 @@
-// src/db.js
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb://localhost:27017/passguarddb'; 
 require('dotenv').config();
 
-// Set strictQuery to suppress the warning
-mongoose.set('strictQuery', true); // or false based on your preference
+// Load MongoDB URI from environment variables or use a fallback
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/passguarddb';
 
-let mongoURI = process.env.MONGODB_URI;
-
-console.log('MongoURI:', mongoURI); // Debug statement
+// Set mongoose options and connect to MongoDB
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
