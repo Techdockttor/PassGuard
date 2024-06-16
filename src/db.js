@@ -11,8 +11,6 @@ mongoose.set('strictQuery', true); // or false based on your preference
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
 }).catch(err => console.error('MongoDB connection error:', err));
 
 const db = mongoose.connection;
