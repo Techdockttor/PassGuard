@@ -17,7 +17,6 @@ console.log('MongoURI:', mongoURI); // Debug statement to check the URI
 // Set mongoose options and connect to MongoDB
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
 }).catch(err => console.error('MongoDB connection error:', err));
 
 const db = mongoose.connection;
