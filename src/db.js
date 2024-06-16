@@ -6,7 +6,7 @@ require('dotenv').config();
 // Set strictQuery to suppress the warning
 mongoose.set('strictQuery', true); // or false based on your preference
 
-const mongoURI = process.env.MONGODB_URI;
+let mongoURI = process.env.MONGODB_URI;
 
 console.log('MongoURI:', mongoURI); // Debug statement
 mongoose.connect(mongoURI, {
