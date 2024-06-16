@@ -9,9 +9,21 @@ const Password = require('./models/password'); // Import your Password model
 const db = require('./db'); // Import MongoDB connection
 const authRouter = require('./auth'); // Example router file
 const passwordRouter = require('./passwords'); // Example router file
-
-
 const app = express();
+
+//CORS
+const corsoptions = {
+  origin: "http://localhost:5000" || "*", //The frontend domain. || or
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowHeaders: [
+    "Content-Type",
+    "Authorization",
+    "Access-Control-Allow-Credentials",
+  ],
+};
+
+app.use(cors(corsoptions));
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
