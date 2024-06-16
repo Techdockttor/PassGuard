@@ -67,7 +67,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/passwords', passwordRouter);
 
 // Set base port to 3000 or read from environment
-portfinder.basePort = process.env.PORT || 3000;
+portfinder.basePort = process.env.PORT || 3001;
 
 // Find a free port and start the server
 portfinder.getPort((err, port) => {
