@@ -11,6 +11,8 @@ const authRouter = require('./auth'); // Example router file
 const passwordRouter = require('./passwords');
 const app = express();
 const config = require('./config');
+const { API_URL, KEY } = require('../config.js');
+const { AJAX } = require('../ajax.js');
 
 //CORS
 const corsoptions = {
