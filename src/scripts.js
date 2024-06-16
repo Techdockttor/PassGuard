@@ -1,3 +1,5 @@
+//DOM Manipulation and Event Listeners
+
 function deletePassword(id) {
     if (confirm('Are you sure you want to delete this password?')) {
         fetch(`/api/passwords/${id}`, {

@@ -2,6 +2,9 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const { API_URL, RES_PER_PAGE, KEY } = require('./config.js');
+const { AJAX } = require('./ajax.js');
+
 
 const passwordSchema = new Schema({
     title: { type: String, required: true },
