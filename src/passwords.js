@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const Password = require('./models/password');
-const generatePassword = require('../passwordGenerator');
+const generatePassword = require('./passwordGenerator');
 
 // Create a new password
 router.post('/', async (req, res) => {
