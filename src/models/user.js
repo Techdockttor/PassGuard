@@ -1,6 +1,7 @@
 // src/models/User.js
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const mongoURI = 'mongodb://localhost:27017/passguard';
 const { API_URL, KEY } = require('../config.js');
 const { AJAX } = require('../ajax.js');
 
