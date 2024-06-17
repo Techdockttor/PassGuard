@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const User = require('./models/user');
 const Password = require('./models/password');
 const authenticateToken = require('./authenticate');
+const LogEntry = require('./models/logEntry'); // Assuming you have a Mongoose model for log entries
 
 // Signup route
 router.post('/signup', async (req, res) => {
@@ -179,6 +180,70 @@ router.post('/logout', (req, res) => {
       return res.status(401).json({ error: 'Invalid token' });
     }
   });
+});
+
+// Function to extract data from a log entry
+function extractInput(inputLine) {
+  const logRegex = /\s*(\S+)\s*-\s*\[(\d+-\d+-\d+ \d+:\d+:\d+\.\d+)\]\s*"([^"]*)"\s*(\d+)\s*(\d+)\s*/;
+  const match = inputLine.match(logRegex);
+  if (!match) {
+    return null;
+  }
+
+  return {
+    ip: match[1],
+    date: match[2],
+    request: match[3],
+    statusCode: match[4],
+    fileSize: parseInt(match[5], 10),
+  };
+}
+
+// Route to handle log submission
+router.post('/submit-log', async (req, res) => {
+  try {
+    const { logEntry } = req.body;
+    const parsedLog = extractInput(logEntry);
+    if (!parsedLog) {
+      return res.status(400).json({ message: 'Invalid log entry format' });
+    }
+
+    const newLogEntry = new LogEntry(parsedLog);
+    await newLogEntry.save();
+
+    res.status(201).json({ message: 'Log entry saved successfully' });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Route to get statistics
+router.get('/statistics', async (req, res) => {
+  try {
+    const logs = await LogEntry.find();
+    let totalFileSize = 0;
+    const statusCodesStats = {
+      '200': 0,
+      '301': 0,
+      '400': 0,
+      '401': 0,
+      '403': 0,
+      '404': 0,
+      '405': 0,
+      '500': 0,
+    };
+
+    logs.forEach(log => {
+      totalFileSize += log.fileSize;
+      if (statusCodesStats[log.statusCode] !== undefined) {
+        statusCodesStats[log.statusCode] += 1;
+      }
+    });
+
+    res.status(200).json({ totalFileSize, statusCodesStats });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 module.exports = router;
