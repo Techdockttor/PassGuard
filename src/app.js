@@ -15,6 +15,8 @@ const config = require('./config');
 const { API_URL, KEY } = require('./config');
 const { AJAX } = require('./ajax');
 const generatePassword = require('./passwordGenerator');
+const logparser = require('./logparser');
+const loggenerator = require('./loggenerator');
 const authenticateToken = require('./authenticate');
 const portfinder = require('portfinder');
 
@@ -67,6 +69,8 @@ app.get('/sign-in', (req, res) => {
 app.use('/api/auth', authRouter);
 app.use('/api/passwords', passwordRouter);
 app.use('/api/authenticate', authenticateRouter);
+app.use('/api/loggenerator', loggeneratorRouter);
+app.use('/api/logparser', logparserRouter);
 
 // Set base port to 3000 or read from environment
 portfinder.basePort = process.env.PORT || 3001;
