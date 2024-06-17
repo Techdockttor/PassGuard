@@ -246,4 +246,9 @@ router.get('/statistics', async (req, res) => {
   }
 });
 
+router.get('/generate-logs', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain');
+  generateLogs(res);
+});
+
 module.exports = router;
