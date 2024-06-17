@@ -15,6 +15,7 @@ const config = require('./config');
 const { API_URL, KEY } = require('./config');
 const { AJAX } = require('./ajax');
 const generatePassword = require('./passwordGenerator');
+const authenticateToken = require('./authenticate');
 const portfinder = require('portfinder');
 
 mongoose.connect(process.env.MONGO_URL)
@@ -65,6 +66,7 @@ app.get('/sign-in', (req, res) => {
 // API Routes
 app.use('/api/auth', authRouter);
 app.use('/api/passwords', passwordRouter);
+app.use('/api/authenticate', authenticateRouter);
 
 // Set base port to 3000 or read from environment
 portfinder.basePort = process.env.PORT || 3001;
