@@ -17,10 +17,6 @@ const { AJAX } = require('./ajax');
 const generatePassword = require('./passwordGenerator');
 const portfinder = require('portfinder');
 
-mongoose.connect(process.env.MONGO_URL)
-.then(() => console.log("DB Connection successfully!"))
-.catch((err) => console.log(err));
-
 //CORS
 const corsoptions = {
   origin: "http://localhost:5000" || "*", //The frontend domain. || or
