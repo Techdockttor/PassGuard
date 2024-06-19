@@ -66,23 +66,18 @@ app.get('/sign-in', (req, res) => {
 app.use('/api/auth', authRouter);
 app.use('/api/passwords', passwordRouter);
 
-// Set base port to 3000 or read from environment
-portfinder.basePort = process.env.PORT || 3001;
+// Get host and debug mode from environment variables or use defaults
+const host = process.env.PASSGUARD_HOST || '127.0.0.1';
+const debug = process.env.PASSGUARD_DEBUG ? process.env.PASSGUARD_DEBUG.toLowerCase() === 'true' : true;
 
-// Find a free port and start the server
-portfinder.getPort((err, port) => {
+// Find an available port using portfinder
+portfinder.getPort({ port: process.env.PASSGUARD_PORT || 8080 }, (err, port) => {
   if (err) {
-    console.error('Error finding a free port:', err);
+    console.error('Error finding available port:', err);
     process.exit(1);
   }
 
-  app.listen(port, () => {
-    console.log(`Server is running on http://localhost: ${port}`);
+  // Start the Express app
+  app.listen(port, host, () => {
+    console.log(`Server is running on http://${host}:${port}`);
   });
-});
-
-// Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
