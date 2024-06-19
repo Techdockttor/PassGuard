@@ -42,7 +42,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Browser Page Routes
-app.get('/', (req, res) => {
+app.get('/landing', (req, res) => {
   res.sendFile(path.join(__dirname, 'landing.html'));
 });
 
