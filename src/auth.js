@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('./models/user');
 const Password = require('./models/password');
-const authenticateToken = require('./authenticate');
+const authenticate = require('./authenticate');
 const LogEntry = require('./models/logEntry'); // Assuming you have a Mongoose model for log entries
 
 // Signup route
