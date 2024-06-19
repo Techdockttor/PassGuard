@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const User = require('./models/user');
 const Password = require('./models/password');
 const authenticate = require('./authenticate');
-const LogEntry = require('./models/logEntry'); // Assuming you have a Mongoose model for log entries
+const LogEntry = require('./models/logEntry');
 
 // Signup route
 router.post('/signup', async (req, res) => {
