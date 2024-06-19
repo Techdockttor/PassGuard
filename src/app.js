@@ -17,7 +17,6 @@ const { AJAX } = require('./ajax');
 const generatePassword = require('./passwordGenerator');
 const logparser = require('./logparser');
 const loggenerator = require('./loggenerator');
-const authenticate = require('./authenticate');
 const portfinder = require('portfinder');
 const LogEntry = require('./models/LogEntry');
 
@@ -69,7 +68,6 @@ app.get('/sign-in', (req, res) => {
 // API Routes
 app.use('/api/auth', authRouter);
 app.use('/api/passwords', passwordRouter);
-app.use('/api/authenticate', authenticateRouter);
 app.use('/api/loggenerator', loggeneratorRouter);
 app.use('/api/logparser', logparserRouter);
 
