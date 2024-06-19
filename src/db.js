@@ -4,15 +4,16 @@ require('dotenv').config(); // Load environment variables from .env file
 // Set strictQuery to suppress the warning
 mongoose.set('strictQuery', true); // or false based on your preference
 
-// Access the MongoDB URI from the environment variables
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/passguarddb';
-
-if (!mongoURI) {
-  console.error('Error: MONGODB_URI is not defined in the environment variables.');
-  process.exit(1); // Exit the process with an error code
+// Function to retrieve MongoDB URI from environment variables or use default
+function getMongoURI() {
+  const defaultURI = 'mongodb://localhost:27017/passguarddb';
+  return process.env.MONGODB_URI || defaultURI;
 }
 
-console.log('MongoURI:', mongoURI); // Debug statement to check the URI
+// Usage example:
+const mongoURI = getMongoURI();
+console.log('MongoURI:', mongoURI);
+
 
 // Set mongoose options and connect to MongoDB
 mongoose.connect(mongoURI, {
