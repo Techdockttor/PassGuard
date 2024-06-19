@@ -81,3 +81,4 @@ portfinder.getPort({ port: process.env.PASSGUARD_PORT || 8080 }, (err, port) => 
   app.listen(port, host, () => {
     console.log(`Server is running on http://${host}:${port}`);
   });
+});
