@@ -17,8 +17,9 @@ const { AJAX } = require('./ajax');
 const generatePassword = require('./passwordGenerator');
 const logparser = require('./logparser');
 const loggenerator = require('./loggenerator');
-const authenticateToken = require('./authenticate');
+const authenticate = require('./authenticate');
 const portfinder = require('portfinder');
+const LogEntry = require('./models/LogEntry');
 
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("DB Connection successfully!"))
