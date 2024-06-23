@@ -16,7 +16,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^2.0.0",
     "mongoose": "^6.13.0",
-    "portfinder": "^1.0.32" 
+    "portfinder": "^1.0.32",
+    "Nginx": "^1.26.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
