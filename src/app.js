@@ -76,11 +76,11 @@ app.post('/create-nginx-config', (req, res) => {
 });
 
 // Get host and debug mode from environment variables or use defaults
-const host = process.env.PASSGUARD_HOST || '127.0.0.1';
+const host = process.env.PASSGUARD_HOST || 'localhost';
 const debug = process.env.PASSGUARD_DEBUG ? process.env.PASSGUARD_DEBUG.toLowerCase() === 'true' : true;
 
 // Find an available port using portfinder
-portfinder.getPort({ port: process.env.PASSGUARD_PORT || 8080 }, (err, port) => {
+portfinder.getPort({ port: process.env.PASSGUARD_PORT || 3000 }, (err, port) => {
   if (err) {
     console.error('Error finding available port:', err);
     process.exit(1);
