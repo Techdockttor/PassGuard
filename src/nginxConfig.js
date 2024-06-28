@@ -60,20 +60,20 @@ function createNginxConfig(domain, publicFolder, callback) {
         .replace(/{{DOMAIN}}/g, domain)
         .replace(/{{PUBLIC_FOLDER}}/g, publicFolder);
 
-    const configPath = path.join(__dirname, ../${domain});
+    const configPath = path.join(__dirname, `../${domain}`);
 
     fs.writeFileSync(configPath, configContent, 'utf8');
 
-    exec(sudo cp ${configPath} /etc/nginx/sites-available/${domain}, (error, stdout, stderr) => {
+    exec(`sudo cp ${configPath} /etc/nginx/sites-available/${domain}`, (error, stdout, stderr) => {
         if (error) {
-            callback(Error: ${error.message});
+            callback(`Error: ${error.message}`);
             return;
         }
         if (stderr) {
-            callback(Stderr: ${stderr});
+            callback(`Stderr: ${stderr}`);
             return;
         }
-        callback(null, Nginx configuration for ${domain} created and copied to /etc/nginx/sites-available/${domain});
+        callback(null, `Nginx configuration for ${domain} created and copied to /etc/nginx/sites-available/${domain}`);
     });
 }
 
