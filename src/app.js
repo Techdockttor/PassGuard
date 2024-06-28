@@ -20,7 +20,7 @@ const { createNginxConfig } = require('./nginxConfig'); // Import the utility fu
 
 //CORS
 const corsoptions = {
-  origin: "http://localhost:3000", //The frontend domain. || or
+  origin: "http://localhost:3000" || "*", //The frontend domain. || or
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowHeaders: [
