@@ -7,6 +7,28 @@ const jwt = require('jsonwebtoken');
 const User = require('./models/user');
 const Password = require('./models/password');
 
+// Endpoint to retrieve and view username
+router.get('/fullname', (req, res) => {
+    const { username } = req.query; // Extract username from query parameters
+    // Return the username in the response
+    res.json({ username });
+});
+
+// Endpoint to retrieve and view email
+router.get('/emailAddress', (req, res) => {
+  const { email } = req.query; // Extract email from query parameters
+  // Return the email in the response
+  res.json({ email });
+});
+
+// Endpoint to retrieve and view generatedPassword
+router.get('/activePasscode', (req, res) => {
+  const { generatedPassword } = req.query; // Extract generatedPassword from query parameters
+  // Return the email in the response
+  res.json({ generatedPassword });
+});
+
+
 // Signup route
 router.post('/signup', async (req, res) => {
   const { username, password } = req.body;
