@@ -16,6 +16,7 @@ const { API_URL, KEY } = require('./config');
 const { AJAX } = require('./ajax');
 const generatePassword = require('./passwordGenerator');
 const portfinder = require('portfinder');
+const { createNginxConfig } = require('./nginxConfig'); // Import the utility function
 
 //CORS
 const corsoptions = {
@@ -61,6 +62,18 @@ app.get('/sign-in', (req, res) => {
 // API Routes
 app.use('/api/auth', authRouter);
 app.use('/api/passwords', passwordRouter);
+
+// New route for creating Nginx config
+app.post('/create-nginx-config', (req, res) => {
+    const { domain, publicFolder } = req.body;
+
+    createNginxConfig(domain, publicFolder, (error, message) => {
+        if (error) {
+            return res.status(500).json({ error });
+        }
+        res.status(200).json({ message });
+    });
+});
 
 // Get host and debug mode from environment variables or use defaults
 const host = process.env.PASSGUARD_HOST || '127.0.0.1';
