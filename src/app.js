@@ -20,7 +20,7 @@ const { createNginxConfig } = require('./nginxConfig'); // Import the utility fu
 
 //CORS
 const corsoptions = {
-  origin: "http://localhost:3000" || "*", //The frontend domain. || or
+  origin: "http://0.0.0.0:5000" || "*", //The frontend domain. || or
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowHeaders: [
@@ -76,11 +76,11 @@ app.post('/create-nginx-config', (req, res) => {
 });
 
 // Get host and debug mode from environment variables or use defaults
-const host = process.env.PASSGUARD_HOST || 'localhost';
+const host = process.env.PASSGUARD_HOST || '0.0.0.0';
 const debug = process.env.PASSGUARD_DEBUG ? process.env.PASSGUARD_DEBUG.toLowerCase() === 'true' : true;
 
 // Find an available port using portfinder
-portfinder.getPort({ port: process.env.PASSGUARD_PORT || 3000 }, (err, port) => {
+portfinder.getPort({ port: process.env.PASSGUARD_PORT || 5000 }, (err, port) => {
   if (err) {
     console.error('Error finding available port:', err);
     process.exit(1);
