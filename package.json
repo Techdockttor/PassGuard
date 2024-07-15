@@ -4,7 +4,7 @@
   "description": "PassGuard Application using Node.js, Express, and MongoDB",
   "main": "src/app.js",
   "scripts": {
-    "start": "node src/landing.html",
+    "start": "node src/app.js",
     "dev": "nodemon src/app.js"
   },
   "dependencies": {
