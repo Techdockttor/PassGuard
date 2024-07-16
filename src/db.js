@@ -14,11 +14,15 @@ function getMongoURI() {
 const mongoURI = getMongoURI();
 console.log('MongoURI:', mongoURI);
 
-
 // Set mongoose options and connect to MongoDB
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
-}).catch(err => console.error('MongoDB connection error:', err));
+  useUnifiedTopology: true, // Added unified topology for better server discovery and monitoring
+}).then(() => {
+  console.log('Connected to MongoDB'); // Moved successful connection message here
+}).catch(err => {
+  console.error('MongoDB connection error:', err); // Moved error handling here
+});
 
 const db = mongoose.connection;
 
@@ -26,8 +30,9 @@ db.on('error', (err) => {
   console.error('MongoDB connection error:', err);
 });
 
-db.once('open', () => {
-  console.log('Connected to MongoDB');
-});
+// Removed duplicate success message to avoid redundancy
+// db.once('open', () => {
+//   console.log('Connected to MongoDB');
+// });
 
 module.exports = db;

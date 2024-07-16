@@ -87,7 +87,7 @@ portfinder.getPort({ port: process.env.PASSGUARD_PORT || 5001 }, (err, port) => 
   }
 
   // Start the Express app
-  app.listen(port, host, () => {
+  app.listen(port, '0.0.0.0', () => { // using 0.0.0.0 for external access
     console.log(`Server is running on http://${host}:${port}(Press CTRL+C to quit)`);
     console.log('Starting server...'); // Adding the console.log statement here
   });
