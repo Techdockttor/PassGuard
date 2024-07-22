@@ -1,283 +1,45 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install' ]
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'start' ]
 2 info using npm@3.5.2
 3 info using node@v8.10.0
-4 silly loadCurrentTree Starting
-5 silly install loadCurrentTree
-6 silly install readLocalPackageData
-7 silly install normalizeTree
-8 silly loadCurrentTree Finishing
-9 silly loadIdealTree Starting
-10 silly install loadIdealTree
-11 silly cloneCurrentTree Starting
-12 silly install cloneCurrentTreeToIdealTree
-13 silly cloneCurrentTree Finishing
-14 silly loadShrinkwrap Starting
-15 silly install loadShrinkwrap
-16 silly loadShrinkwrap Finishing
-17 silly loadAllDepsIntoIdealTree Starting
-18 silly install loadAllDepsIntoIdealTree
-19 silly fetchNamedPackageData mongodb
-20 silly mapToRegistry name mongodb
-21 silly mapToRegistry using default registry
-22 silly mapToRegistry registry https://registry.npmjs.org/
-23 silly mapToRegistry uri https://registry.npmjs.org/mongodb
-24 silly fetchNamedPackageData Nginx
-25 silly mapToRegistry name Nginx
-26 silly mapToRegistry using default registry
-27 silly mapToRegistry registry https://registry.npmjs.org/
-28 silly mapToRegistry uri https://registry.npmjs.org/Nginx
-29 verbose request uri https://registry.npmjs.org/mongodb
-30 verbose request no auth needed
-31 info attempt registry request try #1 at 4:43:09 AM
-32 verbose request id 0d674aa19d1c2e12
-33 http request GET https://registry.npmjs.org/mongodb
-34 verbose request uri https://registry.npmjs.org/Nginx
-35 verbose request no auth needed
-36 info attempt registry request try #1 at 4:43:09 AM
-37 http request GET https://registry.npmjs.org/Nginx
-38 http 404 https://registry.npmjs.org/Nginx
-39 verbose headers { date: 'Wed, 26 Jun 2024 11:43:10 GMT',
-39 verbose headers   'content-type': 'application/json',
-39 verbose headers   'content-length': '21',
-39 verbose headers   connection: 'keep-alive',
-39 verbose headers   'cf-ray': '899cf0290cda9c70-IAD',
-39 verbose headers   'access-control-allow-origin': '*',
-39 verbose headers   vary: 'Accept-Encoding',
-39 verbose headers   server: 'cloudflare' }
-40 silly get cb [ 404,
-40 silly get   { date: 'Wed, 26 Jun 2024 11:43:10 GMT',
-40 silly get     'content-type': 'application/json',
-40 silly get     'content-length': '21',
-40 silly get     connection: 'keep-alive',
-40 silly get     'cf-ray': '899cf0290cda9c70-IAD',
-40 silly get     'access-control-allow-origin': '*',
-40 silly get     vary: 'Accept-Encoding',
-40 silly get     server: 'cloudflare' } ]
-41 silly fetchPackageMetaData Error: Not found : Nginx
-41 silly fetchPackageMetaData     at makeError (/usr/share/npm/node_modules/npm-registry-client/lib/request.js:264:12)
-41 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/share/npm/node_modules/npm-registry-client/lib/request.js:252:14)
-41 silly fetchPackageMetaData     at Request._callback (/usr/share/npm/node_modules/npm-registry-client/lib/request.js:172:14)
-41 silly fetchPackageMetaData     at Request.self.callback (/usr/share/npm/node_modules/request/request.js:198:22)
-41 silly fetchPackageMetaData     at emitTwo (events.js:126:13)
-41 silly fetchPackageMetaData     at Request.emit (events.js:214:7)
-41 silly fetchPackageMetaData     at Request.<anonymous> (/usr/share/npm/node_modules/request/request.js:1082:10)
-41 silly fetchPackageMetaData     at emitOne (events.js:121:20)
-41 silly fetchPackageMetaData     at Request.emit (events.js:211:7)
-41 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/share/npm/node_modules/request/request.js:1009:12)
-41 silly fetchPackageMetaData  error for Nginx@^1.26.1 { Error: Not found : Nginx
-41 silly fetchPackageMetaData     at makeError (/usr/share/npm/node_modules/npm-registry-client/lib/request.js:264:12)
-41 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/share/npm/node_modules/npm-registry-client/lib/request.js:252:14)
-41 silly fetchPackageMetaData     at Request._callback (/usr/share/npm/node_modules/npm-registry-client/lib/request.js:172:14)
-41 silly fetchPackageMetaData     at Request.self.callback (/usr/share/npm/node_modules/request/request.js:198:22)
-41 silly fetchPackageMetaData     at emitTwo (events.js:126:13)
-41 silly fetchPackageMetaData     at Request.emit (events.js:214:7)
-41 silly fetchPackageMetaData     at Request.<anonymous> (/usr/share/npm/node_modules/request/request.js:1082:10)
-41 silly fetchPackageMetaData     at emitOne (events.js:121:20)
-41 silly fetchPackageMetaData     at Request.emit (events.js:211:7)
-41 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/share/npm/node_modules/request/request.js:1009:12) pkgid: 'Nginx', statusCode: 404, code: 'E404' }
-42 http 200 https://registry.npmjs.org/mongodb
-43 verbose headers { date: 'Wed, 26 Jun 2024 11:43:10 GMT',
-43 verbose headers   'content-type': 'application/json',
-43 verbose headers   'transfer-encoding': 'chunked',
-43 verbose headers   connection: 'keep-alive',
-43 verbose headers   'cf-ray': '899cf029082d9c6a-IAD',
-43 verbose headers   'cf-cache-status': 'HIT',
-43 verbose headers   'access-control-allow-origin': '*',
-43 verbose headers   age: '113',
-43 verbose headers   'cache-control': 'public, max-age=300',
-43 verbose headers   etag: 'W/"26b5ed00780658710c33e2219722eacb"',
-43 verbose headers   'last-modified': 'Wed, 26 Jun 2024 00:12:45 GMT',
-43 verbose headers   vary: 'accept-encoding, accept',
-43 verbose headers   server: 'cloudflare',
-43 verbose headers   'content-encoding': 'gzip' }
-44 silly get cb [ 200,
-44 silly get   { date: 'Wed, 26 Jun 2024 11:43:10 GMT',
-44 silly get     'content-type': 'application/json',
-44 silly get     'transfer-encoding': 'chunked',
-44 silly get     connection: 'keep-alive',
-44 silly get     'cf-ray': '899cf029082d9c6a-IAD',
-44 silly get     'cf-cache-status': 'HIT',
-44 silly get     'access-control-allow-origin': '*',
-44 silly get     age: '113',
-44 silly get     'cache-control': 'public, max-age=300',
-44 silly get     etag: 'W/"26b5ed00780658710c33e2219722eacb"',
-44 silly get     'last-modified': 'Wed, 26 Jun 2024 00:12:45 GMT',
-44 silly get     vary: 'accept-encoding, accept',
-44 silly get     server: 'cloudflare',
-44 silly get     'content-encoding': 'gzip' } ]
-45 verbose get saving mongodb to /root/.npm/registry.npmjs.org/mongodb/.cache.json
-46 silly resolveWithNewModule mongodb@2.2.36 checking installable status
-47 silly cache add args [ 'mongodb@^2.0.0', null ]
-48 verbose cache add spec mongodb@^2.0.0
-49 silly cache add parsed spec Result {
-49 silly cache add   raw: 'mongodb@^2.0.0',
-49 silly cache add   scope: null,
-49 silly cache add   name: 'mongodb',
-49 silly cache add   rawSpec: '^2.0.0',
-49 silly cache add   spec: '>=2.0.0 <3.0.0',
-49 silly cache add   type: 'range' }
-50 silly addNamed mongodb@>=2.0.0 <3.0.0
-51 verbose addNamed ">=2.0.0 <3.0.0" is a valid semver range for mongodb
-52 silly addNameRange { name: 'mongodb', range: '>=2.0.0 <3.0.0', hasData: false }
-53 silly mapToRegistry name mongodb
-54 silly mapToRegistry using default registry
-55 silly mapToRegistry registry https://registry.npmjs.org/
-56 silly mapToRegistry uri https://registry.npmjs.org/mongodb
-57 verbose addNameRange registry:https://registry.npmjs.org/mongodb not in flight; fetching
-58 verbose get https://registry.npmjs.org/mongodb not expired, no request
-59 silly addNameRange number 2 { name: 'mongodb', range: '>=2.0.0 <3.0.0', hasData: true }
-60 silly addNameRange versions [ 'mongodb',
-60 silly addNameRange   [ '0.9.4',
-60 silly addNameRange     '0.9.4-4',
-60 silly addNameRange     '0.9.3',
-60 silly addNameRange     '0.9.1',
-60 silly addNameRange     '0.9.2',
-60 silly addNameRange     '0.9.6-7',
-60 silly addNameRange     '0.9.6-8',
-60 silly addNameRange     '0.9.6-9',
-60 silly addNameRange     '0.9.6-10',
-60 silly addNameRange     '0.9.6-11',
-60 silly addNameRange     '0.9.6-12',
-60 silly addNameRange     '0.9.6-13',
-60 silly addNameRange     '0.9.6-14',
-60 silly addNameRange     '0.9.6-15',
-60 silly addNameRange     '0.9.6-16',
-60 silly addNameRange     '0.9.6-17',
-60 silly addNameRange     '0.9.6-18',
-60 silly addNameRange     '0.9.6-19',
-60 silly addNameRange     '0.9.6-20',
-60 silly addNameRange     '0.9.6-21',
-60 silly addNameRange     '0.9.6-22',
-60 silly addNameRange     '0.9.6-23',
-60 silly addNameRange     '0.9.7',
-60 silly addNameRange     '0.9.7-0',
-60 silly addNameRange     '0.9.7-1',
-60 silly addNameRange     '0.9.7-1.1',
-60 silly addNameRange     '0.9.7-1.2',
-60 silly addNameRange     '0.9.7-1.3',
-60 silly addNameRange     '0.9.7-1.4',
-60 silly addNameRange     '0.9.7-2',
-60 silly addNameRange     '0.9.7-2-1',
-60 silly addNameRange     '0.9.7-2-2',
-60 silly addNameRange     '0.9.7-2-3',
-60 silly addNameRange     '0.9.7-2-4',
-60 silly addNameRange     '0.9.7-2-5',
-60 silly addNameRange     '0.9.7-3',
-60 silly addNameRange     '0.9.7-3-1',
-60 silly addNameRange     '0.9.7-3-2',
-60 silly addNameRange     '0.9.7-3-3',
-60 silly addNameRange     '0.9.7-3-4',
-60 silly addNameRange     '0.9.7-3-5',
-60 silly addNameRange     '0.9.8',
-60 silly addNameRange     '0.9.8-1',
-60 silly addNameRange     '0.9.8-2',
-60 silly addNameRange     '0.9.8-3',
-60 silly addNameRange     '0.9.8-4',
-60 silly addNameRange     '0.9.8-5',
-60 silly addNameRange     '0.9.8-6',
-60 silly addNameRange     '0.9.8-7',
-60 silly addNameRange     '0.9.9',
-60 silly addNameRange     '0.9.9-1',
-60 silly addNameRange     '0.9.9-2',
-60 silly addNameRange     '0.9.9-3',
-60 silly addNameRange     '0.9.9-4',
-60 silly addNameRange     '0.9.9-5',
-60 silly addNameRange     '0.9.9-6',
-60 silly addNameRange     '0.9.9-7',
-60 silly addNameRange     '0.9.9-8',
-60 silly addNameRange     '1.0.0',
-60 silly addNameRange     '1.0.1',
-60 silly addNameRange     '1.0.2',
-60 silly addNameRange     '1.1.0-beta',
-60 silly addNameRange     '1.1.0',
-60 silly addNameRange     '1.1.1',
-60 silly addNameRange     '1.1.2',
-60 silly addNameRange     '1.1.3',
-60 silly addNameRange     '1.1.4',
-60 silly addNameRange     '1.1.5',
-60 silly addNameRange     '1.1.6',
-60 silly addNameRange     '1.1.7',
-60 silly addNameRange     '1.1.8',
-60 silly addNameRange     '1.1.9',
-60 silly addNameRange     '1.1.10',
-60 silly addNameRange     '1.1.11',
-60 silly addNameRange     '1.2.0',
-60 silly addNameRange     '1.2.1',
-60 silly addNameRange     '1.2.2',
-60 silly addNameRange     '1.2.3',
-60 silly addNameRange     '1.2.4',
-60 silly addNameRange     '1.2.5',
-60 silly addNameRange     '1.2.6',
-60 silly addNameRange     '1.2.7',
-60 silly addNameRange     '1.2.8',
-60 silly addNameRange     '1.2.9',
-60 silly addNameRange     '1.2.10',
-60 silly addNameRange     '1.2.11',
-60 silly addNameRange     '1.2.12',
-60 silly addNameRange     '1.2.13',
-60 silly addNameRange     '1.2.14',
-60 silly addNameRange     '1.3.0',
-60 silly addNameRange     '1.3.1',
-60 silly addNameRange     '1.3.2',
-60 silly addNameRange     '1.3.3',
-60 silly addNameRange     '1.3.4',
-60 silly addNameRange     '1.3.5',
-60 silly addNameRange     '1.3.6',
-60 silly addNameRange     '1.3.7',
-60 silly addNameRange     '1.3.8',
-60 silly addNameRange     '1.3.9',
-60 silly addNameRange     '1.3.10',
-60 silly addNameRange     ... 412 more items ] ]
-61 silly addNamed mongodb@2.2.36
-62 verbose addNamed "2.2.36" is a plain semver version for mongodb
-63 silly mapToRegistry name mongodb
-64 silly mapToRegistry using default registry
-65 silly mapToRegistry registry https://registry.npmjs.org/
-66 silly mapToRegistry uri https://registry.npmjs.org/mongodb
-67 verbose addRemoteTarball https://registry.npmjs.org/mongodb/-/mongodb-2.2.36.tgz not in flight; adding
-68 verbose addRemoteTarball [ 'https://registry.npmjs.org/mongodb/-/mongodb-2.2.36.tgz',
-68 verbose addRemoteTarball   '1c573680b2849fb0f47acbba3dc5fa228de975f5' ]
-69 info retry fetch attempt 1 at 4:43:15 AM
-70 info attempt registry request try #1 at 4:43:15 AM
-71 http fetch GET https://registry.npmjs.org/mongodb/-/mongodb-2.2.36.tgz
-72 http fetch 200 https://registry.npmjs.org/mongodb/-/mongodb-2.2.36.tgz
-73 silly fetchAndShaCheck shasum 1c573680b2849fb0f47acbba3dc5fa228de975f5
-74 verbose addTmpTarball /tmp/npm-17929-4eb7f9c8/registry.npmjs.org/mongodb/-/mongodb-2.2.36.tgz not in flight; adding
-75 verbose addTmpTarball already have metadata; skipping unpack for mongodb@2.2.36
-76 silly cache afterAdd mongodb@2.2.36
-77 verbose afterAdd /root/.npm/mongodb/2.2.36/package/package.json not in flight; writing
-78 verbose afterAdd /root/.npm/mongodb/2.2.36/package/package.json written
-79 silly rollbackFailedOptional Starting
-80 silly rollbackFailedOptional Finishing
-81 silly runTopLevelLifecycles Starting
-82 silly runTopLevelLifecycles Finishing
-83 silly install printInstalled
-84 verbose stack Error: Not found : Nginx
-84 verbose stack     at makeError (/usr/share/npm/node_modules/npm-registry-client/lib/request.js:264:12)
-84 verbose stack     at CachingRegistryClient.<anonymous> (/usr/share/npm/node_modules/npm-registry-client/lib/request.js:252:14)
-84 verbose stack     at Request._callback (/usr/share/npm/node_modules/npm-registry-client/lib/request.js:172:14)
-84 verbose stack     at Request.self.callback (/usr/share/npm/node_modules/request/request.js:198:22)
-84 verbose stack     at emitTwo (events.js:126:13)
-84 verbose stack     at Request.emit (events.js:214:7)
-84 verbose stack     at Request.<anonymous> (/usr/share/npm/node_modules/request/request.js:1082:10)
-84 verbose stack     at emitOne (events.js:121:20)
-84 verbose stack     at Request.emit (events.js:211:7)
-84 verbose stack     at IncomingMessage.<anonymous> (/usr/share/npm/node_modules/request/request.js:1009:12)
-85 verbose statusCode 404
-86 verbose pkgid Nginx
-87 verbose cwd /PassGuard
-88 error Linux 5.3.0-1032-aws
-89 error argv "/usr/bin/node" "/usr/bin/npm" "install"
-90 error node v8.10.0
-91 error npm  v3.5.2
-92 error code E404
-93 error 404 Not found : Nginx
-94 error 404
-95 error 404 'Nginx' is not in the npm registry.
-96 error 404 Your package name is not valid, because
-97 error 404 1. name can no longer contain capital letters
-98 error 404 It was specified as a dependency of 'passguard-app'
-99 error 404 Note that you can also install from a
-100 error 404 tarball, folder, http url, or git url.
-101 verbose exit [ 1, true ]
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle passguard-app@1.0.0~prestart: passguard-app@1.0.0
+6 silly lifecycle passguard-app@1.0.0~prestart: no script for prestart, continuing
+7 info lifecycle passguard-app@1.0.0~start: passguard-app@1.0.0
+8 verbose lifecycle passguard-app@1.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle passguard-app@1.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/PassGuard/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+10 verbose lifecycle passguard-app@1.0.0~start: CWD: /PassGuard
+11 silly lifecycle passguard-app@1.0.0~start: Args: [ '-c', 'node src/app.js' ]
+12 silly lifecycle passguard-app@1.0.0~start: Returned: code: 1  signal: null
+13 info lifecycle passguard-app@1.0.0~start: Failed to exec start script
+14 verbose stack Error: passguard-app@1.0.0 start: `node src/app.js`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/usr/share/npm/lib/utils/lifecycle.js:232:16)
+14 verbose stack     at emitTwo (events.js:126:13)
+14 verbose stack     at EventEmitter.emit (events.js:214:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/share/npm/lib/utils/spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:126:13)
+14 verbose stack     at ChildProcess.emit (events.js:214:7)
+14 verbose stack     at maybeClose (internal/child_process.js:925:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)
+15 verbose pkgid passguard-app@1.0.0
+16 verbose cwd /PassGuard
+17 error Linux 5.3.0-1032-aws
+18 error argv "/usr/bin/node" "/usr/bin/npm" "start"
+19 error node v8.10.0
+20 error npm  v3.5.2
+21 error code ELIFECYCLE
+22 error passguard-app@1.0.0 start: `node src/app.js`
+22 error Exit status 1
+23 error Failed at the passguard-app@1.0.0 start script 'node src/app.js'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the passguard-app package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     node src/app.js
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs passguard-app
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls passguard-app
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config(); // Load environment variables from .env file
 
 // Set strictQuery to suppress the warning
-mongoose.set('strictQuery', true); // or false based on your preference
+mongoose.set('strictQuery', true);
 
 // Function to retrieve MongoDB URI from environment variables or use default
 function getMongoURI() {
@@ -19,9 +19,9 @@ mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true, // Added unified topology for better server discovery and monitoring
 }).then(() => {
-  console.log('Connected to MongoDB'); // Moved successful connection message here
+  console.log('Connected to MongoDB');
 }).catch(err => {
-  console.error('MongoDB connection error:', err); // Moved error handling here
+  console.error('MongoDB connection error:', err);
 });
 
 const db = mongoose.connection;
@@ -30,9 +30,8 @@ db.on('error', (err) => {
   console.error('MongoDB connection error:', err);
 });
 
-// Removed duplicate success message to avoid redundancy
-// db.once('open', () => {
-//   console.log('Connected to MongoDB');
-// });
+db.once('open', () => {
+  console.log('MongoDB connection is open');
+});
 
 module.exports = db;

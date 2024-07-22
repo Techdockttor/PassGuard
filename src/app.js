@@ -1,4 +1,3 @@
-// src/app.js
 const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -17,6 +16,8 @@ const { AJAX } = require('./ajax');
 const generatePassword = require('./passwordGenerator');
 const portfinder = require('portfinder');
 const { createNginxConfig } = require('./nginxConfig'); // Import the utility function
+
+dotenv.config();
 
 //CORS
 const corsoptions = {
@@ -92,3 +93,9 @@ portfinder.getPort({ port: process.env.PASSGUARD_PORT || 5001 }, (err, port) => 
     console.log('Starting server...'); // Adding the console.log statement here
   });
 });
+
+// Connect to MongoDB
+const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/passguarddb';
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch(err => console.log('MongoDB connection error:', err));
