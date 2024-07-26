@@ -45,7 +45,7 @@ server {
     location ~ \.php$ {
         try_files $uri =404;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;  # Update this according to your PHP-FPM version and socket path
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
@@ -60,20 +60,25 @@ function createNginxConfig(domain, publicFolder, callback) {
         .replace(/{{DOMAIN}}/g, domain)
         .replace(/{{PUBLIC_FOLDER}}/g, publicFolder);
 
-    const configPath = path.join(__dirname, `../${domain}`);
+    const configPath = path.join(__dirname, `${domain}.conf`);
 
-    fs.writeFileSync(configPath, configContent, 'utf8');
-
-    exec(`sudo cp ${configPath} /etc/nginx/sites-available/${domain}`, (error, stdout, stderr) => {
-        if (error) {
-            callback(`Error: ${error.message}`);
+    fs.writeFile(configPath, configContent, 'utf8', (err) => {
+        if (err) {
+            callback(`Error writing Nginx config file: ${err.message}`);
             return;
         }
-        if (stderr) {
-            callback(`Stderr: ${stderr}`);
-            return;
-        }
-        callback(null, `Nginx configuration for ${domain} created and copied to /etc/nginx/sites-available/${domain}`);
+
+        exec(`sudo cp ${configPath} /etc/nginx/sites-available/${domain} && sudo ln -s /etc/nginx/sites-available/${domain} /etc/nginx/sites-enabled/`, (error, stdout, stderr) => {
+            if (error) {
+                callback(`Error: ${error.message}`);
+                return;
+            }
+            if (stderr) {
+                callback(`Stderr: ${stderr}`);
+                return;
+            }
+            callback(null, `Nginx configuration for ${domain} created and enabled`);
+        });
     });
 }
 

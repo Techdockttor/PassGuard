@@ -4,6 +4,9 @@ require('dotenv').config(); // Load environment variables from .env file
 // Set strictQuery to suppress the warning
 mongoose.set('strictQuery', true);
 
+// Enable Mongoose debugging
+mongoose.set('debug', true);
+
 // Function to retrieve MongoDB URI from environment variables or use default
 function getMongoURI() {
   const defaultURI = 'mongodb://localhost:27017/passguarddb';
